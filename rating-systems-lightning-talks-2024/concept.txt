@@ -1,0 +1,79 @@
+Also ich bin heute hier um ein bisschen was über rating systeme zu erzähle, fokus auf rating systeme von online spielen und auf die "shenanigans" die hier an vielen stattfinden
+
+ein rating system ist erstmal nichts anderes als eine mathematische operation oder eine folge von operationen die parameter, meistens win lose und draw in eine information überführt, wie hoch die wahrscheinlichkeit ist, dass bei einem interaktion von aktoren, im einfachsten fall zwei ein bestimmtest ergebnis eintritt
+
+die einfachste variante hiervon, vielleicht, wir haben Spieler der 3 mal gewonnen hat und einen der 7 mal mal gewonnen hat und dann sagen wir 7/(3+7) = 70% dass spieler 1 gewinnt
+
+tya vielleicht keine schlechte idee wenn unser spieler feld aus uns und unserem kindergarten Freund bsteht, also genau zwei spielen bestehet aber das ist natürlich nicht wie die meisten echten rating probleme aufgebaut sind
+
+nein echte rating probleme haben viele aktöre und die sind unterschiedlich gut, und nur weil wir 10 mal gegen einen 5 jährigen gewonnen haben, heißt das natürlich nicht, dass wir eine 70% chance auf einen sieg gegen andere spieler haben
+
+das problem ist natürlich schon ein paar anderen aufgefallen und damit kommen wir zum "OG" rating  system, dass so weit verbreitet war, dass selbst heute noch die hälfte aller menschen es als synonym für alle rating systeme bentutzt, dem ELO system
+
+wie funktioniert dieses elo system, ursprünglich für schach? TODO!!
+
+okay das klingt ja schon mal ganz gut und funktiert ja super - oder tut es das, wirklich?
+ELO hat ein paar sehr inherente problem sowohl im schach aber ganz besonders in anderen situation, es kann nicht - zumindest nicht ohne modifikatione, X gegen X oder alle gegen alle spiele abbilden, es konvergiert nicht besonders schnell und es ist nicht besonders stable
+
+okay aber was bedeutet dass wirklich alles, dafür müssen wir mal ein bisschen mehr über die qualitäten eines guten rating systems nachdenken:
+
+ein gutes rating system
+- macht akkurate vorhersagen
+- konvergiert schnel
+- ist stabil gegen statistische outlier
+- kann mehrere spieler gleichzeittig abbilden
+- skaliert in die grenzregionen, also kann auch 3 schlechte gegen einen guten vorhersagen (vielleciht..)
+
+und wie macht sich ELO hier:
+
+eeeeeeep (X-X-X- Folie)
+
+tatsächlich hat elo so viele probleme, dass noch nicht mal FIDE (also schach) wirklich nativ elo verwendet, sondern bereits eine reihe von modifikationen und begrenzungen hinzufügt.
+
+Trueskill
+esh sorry openskill
+ich meine Bayesianisches Abschätzungsmodell
+die Trademark und patensituation hier ist etwas komplex, also besser ihr jemals in die verlegenheit kommt so etwas zu nutzen dann sollte man besser vorsichtig mt dem Wort Trueskill sein, weil das wäre nähmlich ein Softwarepatent
+
+Wen die mathematik tiefer interessiert, hier gibts ein gutes paper https://www.csie.ntu.edu.tw/~cjlin/papers/online_ranking/online_journal.pdf aus Taiwan wo die mathematik relativ kompakt in ca. 30 Seiten erklärt wird und die Implementation dieses Papers gibts auf github unter "openskill"
+
+aber hier ist die idee, die performance eines spielers, ist nicht eine zahl, sondern eine wahrscheinlichkeitsverteilung, das rating eines Teams ist die kombination dieser verteilungen und der ausgang des spieles ist vereinfach gesagt die wahrscheinlich, dass ein zufällig plazierter punkt in einer der beiden verteilungen einen höheren x wert hat
+
+ein draw ist für das rating system super, denn was bedeuten diese verteilungen, naja der sigma wert ist die unsicherheit des systems über den tatsächlichen skill level, bei "perfekten wissen" (was natürlich so nicht existiert), würde die verteilung quasi so aussehn, bei sehr unklaren wissen eher so.
+
+Was passiert beim ELO System wenn diese beiden spieler ein draw produzieren, naja eigentlich gar nichts, weil das gar nicht vorgesehen ist in "pure ELO", aber im Schach und in den meisten anderen elo-implementierungen, wird dass als 0.5:0.5 gehandhabt und das bedeutet, die beiden punkte gehen einfach näher zusammen.
+
+Aber was passiert bei unseren kurven naja, je nachdem wie weit die beiden kurven auseinander wahren, kann es schon sein, dass die kurven etwas zusammen wandern, aber wenn die kurven bereits aufeiandern lagen, dann wird einfach die wahrscheinlichkeit enger und das führt, weil die meisten leaderboard 2 sigma werte anzeigen, dazu dass bei an "Rating gewinnen"
+
+cool, also wie gut funktioniert das
+ich hoste seit ein paar Jahren einen insurgency server und dafür habe ich mich ursprünglich mit rating systemen auseinander gesetzt, denn dieses Spiel hat ein paar enorme Problem:
+
+1. 8v8 auf meinem Server
+2. regelmäßig spiele mit >50% spieler unter 3 Games
+3. alle skill levels wild gemischt weil öffentlicher server
+4. spieler joinen und leaven während der spiele
+5. asymetrische maps (Veteidigung und Angriff nicht gleiche Erfolgschance)
+
+Also ups sscheiße, keine guten vorraussetzungen, ich kam zu dem Zeitpunkt von Leauge und dachte oh mist rating systeme müssen schwierig sein, wenn das da immer so ewig dauert bis man richtig eingerankt ist und selbst dann ist das balancing manchmal komplett lost
+
+Also wie viel dieser spiele brauchen wir so im durschschnitt unter dieser erschwerten bedinungen:
+
+>> plot  mit 5 spiele konvergiereun - > überrascht schauen
+
+öhm ok, was ist unsere vorhersage präzesion 
+
+>> plot
+
+auch nicht schlecht
+
+>> lol dev blog, mistrauisch schauen
+
+hmm. 
+
+Rant
+
+Die meisten großen online spiele haben kein Rating system, sie haben ein "bringe leute dazu mehr zu spielen" system, dass als nebeneffekt leute die wirklich viel spielen irgendwann korrekt einrankt
+Rating systeme werden in der online spiel welt als tool benutzt um leute abhängig zu machen weil, es gibt patent von der größten online gaming poop klitsche überhaupt EA, das genau das beschreibt
+
+Ok mathematik super
+Es gibt ein neues Patent von micorosft aus 2018
