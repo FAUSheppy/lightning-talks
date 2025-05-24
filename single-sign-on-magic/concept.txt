@@ -1,0 +1,9 @@
+Ich möchte heute über single sign on sprechen speziell über openid connect abgekürzt oidc das größere konzept von oauth und am Ende noch ein bisschen wie ihr das konkret umsetzen könnt, wenn ihr dass denn wollt
+
+mein großes ziel heute ist vorallem, dass wenn ihr einges Tages als systemarchtiketen administratoren etc in die weite wirtschaft zieht, ihr anfangt bessere architekturen zu bauen und die welt vielleicht ein bisschen sichere macht
+
+bevor wir darüber reden können wie OIDC funktioniert müssen mir mal kurz darüber reden, warum eigentlich single sign on, warum oidc, welche probleme treten auf und wie sind wir sind wir an der heutigen technologie angelangt, was ist eigentlich authentifizierung und was sind die probleme damit
+
+oidc ist für mich deswegen so ein toller standard, weil wenn man versucht diese probleme zu lösen kommt man fast automatischer and diesem Protokoll an
+
+die einfachste idee die wir haben, wir haben einen webserver und dieser Webserver a
