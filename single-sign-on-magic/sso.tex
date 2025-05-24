@@ -1,0 +1,137 @@
+\documentclass{beamer}
+\usetheme{default}
+\usepackage{amssymb}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{textcomp}
+\usepackage[mathletters]{ucs}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\begin{document}
+
+% --- Title slide ---
+
+\title{Single Sign-On Magic}
+\subtitle{OpenID-Connect, Keycloak und eine bessere Welt}
+\author{Yannik Schmidt\vspace{-.3cm}}
+\institute{Lightningtalks @FAU}
+\date{}
+
+\begin{frame}
+\titlepage
+\vspace{-1.2cm}
+\begin{center}
+\end{center}
+\end{frame}
+
+% --- Main content ---
+
+\begin{frame}{Warum ist OIDC?}
+{\fontsize{100}{120}\selectfont ?}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC?}
+\centering\includegraphics[width=10cm]{0_base.png}
+\end{frame}
+
+
+\begin{frame}{Warum ist OIDC?}
+\centering\includegraphics[width=10cm]{0_base.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Shared Secret}
+\centering\includegraphics[width=10cm]{1_base_shared_secret.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - HTTPS}
+\centering\includegraphics[width=10cm]{2_base_shared_secret_tls.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Just Salt}
+\centering\includegraphics[width=10cm]{3_salted_hashed.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Just Salt}
+\centering\includegraphics[width=10cm]{4_salted_multiple.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC?}
+\centering\includegraphics[width=10cm]{5_multiple_fuck.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - LDAP}
+\centering\includegraphics[width=10cm]{6_ldap_ad.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Trusted Gateway}
+\centering\includegraphics[width=10cm]{7_trusted_auth_gate.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Trusted Gateway}
+\centering\includegraphics[width=10cm]{8_probleme_trusted_gate.png}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Menschen sind Affen}
+\centering\includegraphics[width=10cm]{9_too_much_logins.png}
+\end{frame}
+
+
+\begin{frame}{Warum ist OIDC? - Menschen sind Affen}
+\begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, xshift=0cm, yshift=-2cm] at (current page.north west)
+        {\includegraphics[width=8cm]{auth_argo.png}};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Warum ist OIDC? - Menschen sind Affen}
+\begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, xshift=0cm, yshift=-2cm] at (current page.north west)
+        {\includegraphics[width=8cm]{auth_argo.png}};
+    \node[anchor=north east, xshift=0cm, yshift=-1cm] at (current page.north east)
+        {\includegraphics[width=8cm]{auth_rancher.png}};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Menschen sind Affen}
+\begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, xshift=0cm, yshift=-2cm] at (current page.north west)
+        {\includegraphics[width=8cm]{auth_argo.png}};
+    \node[anchor=north east, xshift=0cm, yshift=-1cm] at (current page.north east)
+        {\includegraphics[width=8cm]{auth_rancher.png}};
+    \node[anchor=south west, xshift=0cm, yshift=0cm] at (current page.south west)
+        {\includegraphics[width=8cm]{auth_opensearch.png}};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Warum ist OIDC? - Menschen sind Affen}
+\begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=north west, xshift=0cm, yshift=-2cm] at (current page.north west)
+        {\includegraphics[width=8cm]{auth_argo.png}};
+    \node[anchor=north east, xshift=0cm, yshift=-1cm] at (current page.north east)
+        {\includegraphics[width=8cm]{auth_rancher.png}};
+    \node[anchor=south west, xshift=0cm, yshift=0cm] at (current page.south west)
+        {\includegraphics[width=8cm]{auth_opensearch.png}};
+    \node[anchor=south east, xshift=0cm, yshift=0cm] at (current page.south east)
+        {\includegraphics[width=8cm]{auth_basic_media.png}};
+\end{tikzpicture}
+\end{frame}
+
+
+\begin{frame}{Warum ist OIDC?}
+\centering\includegraphics[width=10cm]{10_password_grabber.png}
+\end{frame}
+
+
+\begin{frame}{Fragen? Nächster Vortrag: Haskell to Hardware!}
+\begin{itemize}
+\item \textbf{Tutorial Basics}: potaris.de/posts/keycloak\_ansible/
+\item \textbf{Tutorial Advanced}: potaris.de/posts/keycloak\_ldap\_1/
+\item \textbf{Nächster Vortrag}: \textit{Haskell to Hardware}
+\item \textbf{Fragen}
+\end{itemize}
+\end{frame}
+
+\end{document}
