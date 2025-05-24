@@ -9,6 +9,27 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 
+\usepackage{listings}
+\usepackage{xcolor} % for custom colors
+
+\lstdefinelanguage{bash}{
+  keywords={for, in, do, done, echo},
+  sensitive=true,
+  morecomment=[l]{\#},
+  morestring=[b]",
+}
+
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  showstringspaces=false,
+  columns=flexible,
+  backgroundcolor=\color{gray!10},
+}
+
 \begin{document}
 
 % --- Title slide ---
@@ -165,11 +186,63 @@
 \end{frame}
 
 
-\begin{frame}{Ein Micro-Tutorial}
-\begin{frame}{OIDC - mehr oder weniger}
-\centering\includegraphics[width=9cm]{B_2_lets_name_it.png}
+\begin{frame}{Micro-Tutorial}
+\centering\includegraphics[width=9cm]{C_7_full_Keycloak_oatuh.png}
 \end{frame}
 
+\begin{frame}{Micro-Tutorial}
+\centering\includegraphics[width=9cm]{C_8_full_Keycloak_oatuh.png}
+\end{frame}
+
+\begin{frame}{Micro-Tutorial}
+\centering\includegraphics[width=9cm]{C_9_full_Keycloak_oatuh.png}
+\end{frame}
+
+\begin{frame}[fragile]{Micro-Tutorial}
+\begin{lstlisting}
+docker run -p 8000:80 \
+	-e KC_BOOTSTRAP_ADMIN_PASSWORD=pw
+	keycloak:latest
+
+docker run -p 8080:8080
+	-e OAUTH2_PROXY_UPSTREAMS: http://localhost:5000/ \
+    -e OAUTH2_PROXY_CLIENT_ID: "client_name_here" \
+    -e OAUTH2_PROXY_CLIENT_SECRET: "32-byte-secret"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Micro-Tutorial - Client}
+\hspace*{-1cm}\includegraphics[width=13cm]{keycloak_client_1.png}
+\end{frame}
+
+\begin{frame}{Micro-Tutorial - Client}
+\hspace*{-1cm}\includegraphics[width=13cm]{keycloak_client_2.png}
+\end{frame}
+
+\begin{frame}{Micro-Tutorial - Client}
+\hspace*{-1cm}\includegraphics[width=13cm]{keycloak_client_3.png}
+\end{frame}
+
+\begin{frame}{Micro-Tutorial - Client}
+\hspace*{-1cm}\includegraphics[width=13cm]{keycloak_client_4.png}
+\end{frame}
+
+\begin{frame}[fragile]{Micro-Tutorial}
+\begin{lstlisting}
+docker run -p 8000:80 \
+	-e KC_BOOTSTRAP_ADMIN_PASSWORD=pw \
+	keycloak:latest
+
+docker run -p 8080:8080 \
+	-e OAUTH2_PROXY_UPSTREAMS: http://localhost:5000/ \
+        -e OAUTH2_PROXY_CLIENT_ID: "client_name_here" \
+        -e OAUTH2_PROXY_CLIENT_SECRET: "<HERE>"
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Demonstration}
+\href{https://hub.atlantishq.de}{\scalebox{3}{\beamergotobutton{https://hub.atlantishq.de}}}
+\end{frame}
 
 \begin{frame}{Fragen? Nächster Vortrag: Haskell to Hardware!}
 \begin{itemize}
