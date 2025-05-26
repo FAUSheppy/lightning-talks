@@ -1,9 +1,37 @@
-Ich möchte heute über single sign on sprechen speziell über openid connect abgekürzt oidc das größere konzept von oauth und am Ende noch ein bisschen wie ihr das konkret umsetzen könnt, wenn ihr dass denn wollt
+Ich möchte heute über authentifizierung, sign on sprechen, openid connect abgekürzt oidc das größere konzept von oauth und am Ende noch ein bisschen wie ihr das konkret umsetzen könnt, mit zwei der tools die ich oft verwende oauthproxy  und keycloak
 
 mein großes ziel heute ist vorallem, dass wenn ihr einges Tages als systemarchtiketen administratoren etc in die weite wirtschaft zieht, ihr anfangt bessere architekturen zu bauen und die welt vielleicht ein bisschen sichere macht
 
 bevor wir darüber reden können wie OIDC funktioniert müssen mir mal kurz darüber reden, warum eigentlich single sign on, warum oidc, welche probleme treten auf und wie sind wir sind wir an der heutigen technologie angelangt, was ist eigentlich authentifizierung und was sind die probleme damit
 
-oidc ist für mich deswegen so ein toller standard, weil wenn man versucht diese probleme zu lösen kommt man fast automatischer and diesem Protokoll an
+oidc ist für mich deswegen so ein toller standard, weil wenn man versucht die grundlegenden probleme von OIDC zu lösen kommt man fast automatischer and diesem Protokoll an
 
-die einfachste idee die wir haben, wir haben einen webserver und dieser Webserver a
+Wir haben unseren Webserver und unseren Actor und 
+die einfachste idee die wir haben, wir haben einen webserver und dieser Webserver und unser User sich ein secret also z.B. ein passwort teilen, das schicken wir dann in den header mit und ab server überprüfen wir ob es gleich ist
+
+ok vielleicht senden wir das besser über https
+und jetzt wo ich so darüber nachdenke vielleicht wäre es besser das password auf server seit zu hashen & salten damit wir nicht alle secrets direkt kompromitieren wenn wir jemals diese Daten leaken sollen
+
+ok, jetzt können wir das noch base64 encoden und dann haben wir quasi Basic Auth gebaut
+Basic Auth, ist nicht inherent unsicher, solange der kanal sicher ist und das ist er wenn er TLS benutzt, aber ihr das Problem ist, wir haben ein einziges permanentes secret, es reicht ein einziges mal aus, dass wir dieses secret irgendwie über HTTP schicken anstatt https und schon haben wir das geleakt und alles ist kaputt, ja es gibt dinge wie HSTS-Preloading, aber diese Tatsache des langen möglichen Angriffszeitraums ist einer der hauptnachteile von basic auth
+
+okay jetzt wird unser setup größer und wir haben 2,3,4 Anwendungung und müssen dann überall hin unsere salted hashes/secrets verteilen
+
+fuck
+
+ok Nutzerdatenbank, z.B. dedizierte Nutzerdatenbanken wie LDAP oder AD, uff ok, wenigstens mal wieder alles an einem Ort, aber jetzt hat jede unserer applikationen zugriff auf eine Datenbank, müssen wir wieder super aufpassen alles richtig zu implementieren und vorsichtig mit rechte verwaltung, vielleicht wäre es ja besser wenn wir eine Anwendungung das alles machen lassen, also eine Art trusted gateway und dann den nutzer sich eingeloggt hat über X-Remote-user HTTP header
+
+ok aber was machen wir jetzt, damit seid ihr langsam so ungefähr beim durchschnittlichen 10 jahre alten setup in der freien wirtschaft, aber jetzt kommt vielleicht mehr komplexität hinzu, unser browser kann sich zwar basicauth passwörter speicher, aber nur per-subdomain und außerdem wollen wir vielleicht auch mehr information über den nutzer kommunizieren, wie user groups oder irgendwelche attribute
+
+ganz besonders bei den subdomains liegt nämlich ein weiterer großer angriffsvektor, wir haben hier jetzt unsere verschiedenen login-domains, am besten vielleicht noch nicht mal alle unter einer subdomain, weil historisch gewachsen
+
+dann haben wir hier argo, rancher, opensearch und hier noch die lua LDAP implementation von 2018 in nginx und super jetzt trainieren wir langsam aber sicher unsere nutzer einfach bei jeder blöden website sein password einzugeben und dann kommt eine kompromitierte website im intranet uuuuund das password ist wenigstens
+
+Was beduetet das jetzt alles.
+Wir haben jetzt gelert wir wollen obviously https, einen trusted authenticator, ein temporäres token kein permanentes secret welches eine kompromitierte Anwendungung leaken könnte und eine Nutzerdatenbank in irgendeiner form
+
+jetzt garantieren wir das hier einfach mal durch einen RFC Standard, nennen das hier user federartion
+das hier identity provider, hier schicken wir ein signiertes Json-Token mit alle information über den user die die anwendung braucht und unsere application nennen wird Relying Party und wenn wir schon mal dabei sein, eigentlich könnten wir ja auch erlauben, dass unsere datenbank ein anderer identity provider ist
+
+und hallejulia wir haben gerade OIDC erfunden, OIDC hat da noch ein paar "extra optionen"
+

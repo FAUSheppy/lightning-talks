@@ -37,7 +37,7 @@
 \title{Single Sign-On Magic}
 \subtitle{OpenID-Connect, Keycloak und eine bessere Welt}
 \author{Yannik Schmidt\vspace{-.3cm}}
-\institute{Lightningtalks @FAU}
+\institute{Lightning Talks @FAU}
 \date{}
 
 \begin{frame}
@@ -51,11 +51,6 @@
 
 \begin{frame}{Warum ist OIDC?}
 \end{frame}
-
-\begin{frame}{Warum ist OIDC?}
-\centering\includegraphics[width=10cm]{0_base.png}
-\end{frame}
-
 
 \begin{frame}{Warum ist OIDC?}
 \centering\includegraphics[width=10cm]{0_base.png}
@@ -147,31 +142,31 @@
 \centering\includegraphics[width=10cm]{B_0_what_learned.drawio.png}
 \end{frame}
 
-\begin{frame}{Lightningtalk Auth 9999}
-\centering\includegraphics[width=10cm]{B_1_4_part_lets_name_it.png}
-\end{frame}
+%\begin{frame}{Lightning Talk Auth 9000}
+%\centering\includegraphics[width=10cm]{B_1_4_part_lets_name_it.png}
+%\end{frame}
 
-\begin{frame}{Lightningtalk Auth 9999}
+\begin{frame}{Lightning Talk Auth 9000}
 \centering\includegraphics[width=10cm]{B_1_5_part_lets_name_it.png}
 \end{frame}
 
-\begin{frame}{Lightningtalk Auth 9999}
+\begin{frame}{Lightning Talk Auth 9000}
 \centering\includegraphics[width=10cm]{B_1_6_part_lets_name_it.png}
 \end{frame}
 
-\begin{frame}{Lightningtalk Auth 9999}
+\begin{frame}{Lightning Talk Auth 9000}
 \centering\includegraphics[width=10cm]{B_1_7_part_lets_name_it.png}
 \end{frame}
 
-\begin{frame}{Lightningtalk Auth 9999}
+\begin{frame}{Lightning Talk Auth 9000}
 \centering\includegraphics[width=10cm]{B_1_8_part_lets_name_it.png}
 \end{frame}
 
-\begin{frame}{Lightningtalk Auth 9999}
+\begin{frame}{Lightning Talk Auth 9000}
 \centering\includegraphics[width=10cm]{B_1_9_part_lets_name_it.png}
 \end{frame}
 
-\begin{frame}{Lightningtalk Auth 9999}
+\begin{frame}{Lightning Talk Auth 9000}
 \centering\includegraphics[width=10cm]{B_1_lets_name_it.png}
 \end{frame}
 
@@ -199,13 +194,13 @@
 
 \begin{frame}[fragile]{Micro-Tutorial}
 \begin{lstlisting}
-docker run -p 8000:80 \
-	-e KC_BOOTSTRAP_ADMIN_PASSWORD=pw
-	keycloak:latest
+docker run -p 8000:80
+    -e KC_BOOTSTRAP_ADMIN_PASSWORD=pw
+    keycloak:latest
 
 docker run -p 8080:8080
-	-e OAUTH2_PROXY_UPSTREAMS: http://localhost:5000/ \
-    -e OAUTH2_PROXY_CLIENT_ID: "client_name_here" \
+    -e OAUTH2_PROXY_UPSTREAMS: http://localhost:5000/
+    -e OAUTH2_PROXY_CLIENT_ID: "client_name_here"
     -e OAUTH2_PROXY_CLIENT_SECRET: "32-byte-secret"
 \end{lstlisting}
 \end{frame}
@@ -228,27 +223,28 @@ docker run -p 8080:8080
 
 \begin{frame}[fragile]{Micro-Tutorial}
 \begin{lstlisting}
-docker run -p 8000:80 \
-	-e KC_BOOTSTRAP_ADMIN_PASSWORD=pw \
-	keycloak:latest
+docker run -p 8000:80
+    -e KC_BOOTSTRAP_ADMIN_PASSWORD=pw
+    keycloak:latest
 
-docker run -p 8080:8080 \
-	-e OAUTH2_PROXY_UPSTREAMS: http://localhost:5000/ \
-        -e OAUTH2_PROXY_CLIENT_ID: "client_name_here" \
-        -e OAUTH2_PROXY_CLIENT_SECRET: "<HERE>"
+docker run -p 8080:8080
+    -e OAUTH2_PROXY_UPSTREAMS: http://localhost:5000/
+    -e OAUTH2_PROXY_CLIENT_ID: "client_name_here"
+    -e OAUTH2_PROXY_CLIENT_SECRET: "<HERE>"
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Demonstration}
-\href{https://hub.atlantishq.de}{\scalebox{3}{\beamergotobutton{https://hub.atlantishq.de}}}
+\href{https://hub.atlantishq.de}{\beamergotobutton{https://hub.atlantishq.de}}
 \end{frame}
 
 \begin{frame}{Fragen? Nächster Vortrag: Haskell to Hardware!}
 \begin{itemize}
 \item \textbf{Tutorial Basics}: potaris.de/posts/keycloak\_ansible/
 \item \textbf{Tutorial Advanced}: potaris.de/posts/keycloak\_ldap\_1/
-\item \textbf{Nächster Vortrag}: \textit{Haskell to Hardware}
-\item \textbf{Fragen}
+\item \textbf{Nächster Vortrag}: \textit{Clash - from Haskell to Hardware}
+\item \textbf{Fragen}\\
+\hspace*{5cm}\includegraphics[width=3cm]{qr_code.png}
 \end{itemize}
 \end{frame}
 
