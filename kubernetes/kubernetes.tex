@@ -58,25 +58,25 @@
 
 % Ok so, along time ago everything ran on Hardware and People realized, having a physical machine for every single Operation is terrible, but having everything on one machine is also terrible, and so the virtual machine was Born, something that is ubiquitos in todays environemtn
 
-\begin{frame}{VMs \& Docker}
-\centering\includegraphics[width=8cm]{progression-of-separation-1-users.drawio.png}
-\end{frame}
+%\begin{frame}{VMs \& Docker}
+%\centering\includegraphics[width=8cm]{progression-of-separation-1-users.drawio.png}
+%\end{frame}
 
-\begin{frame}{VMs \& Docker}
-	\centering\includegraphics[width=8cm]{progression-of-separation-2-VMs.drawio.png}
-\end{frame}
+%\begin{frame}{VMs \& Docker}
+%	\centering\includegraphics[width=8cm]{progression-of-separation-2-VMs.drawio.png}
+%\end{frame}
 
 
 %but then People started thinking, Setting up These basicially full operatings Systems, thats actually Kind of anoying and wasteful, i mean how much of this do you actually Need? how much Overhead are you introducing, and also Managing depencies is a pain.
 % now a Approach thats still in use today is Setting up a vm once, shutting it down, pulling THS disk and then using this disk as a base for new vms
 % Some of you might already realize where going with this
-\begin{frame}{VMs \& Docker}
-	\centering\includegraphics[width=8cm]{progression-of-separation-3-containers.drawio.png}
-\end{frame}
+%\begin{frame}{VMs \& Docker}
+%	\centering\includegraphics[width=8cm]{progression-of-separation-3-containers.drawio.png}
+%\end{frame}
 
 % and will see what we get next
 \begin{frame}{VMs \& Docker}
-	\centering\includegraphics[width=8cm]{progression-of-separation.drawio.png}
+	\centering\includegraphics[width=3cm]{progression-of-separation.drawio.png}
 \end{frame}
 
 % ok so we have a few Problems we love to solve, vm Images might be big, vm builds are potentially complicated and there is possibly significant Overhead, and getting & installing vm Images is anoying
@@ -100,15 +100,15 @@
 % and voila we just invented docker, minus some extra Features.
 % how do these standardized images work
 \begin{frame}{Dockerfile}
-	\centering\includegraphics[width=8cm]{dockerfile-2.drawio.png}
+	\centering\includegraphics[width=11cm]{dockerfile-2.drawio.png}
 \end{frame}
 
 \begin{frame}{Dockerfile}
-	\centering\includegraphics[width=8cm]{dockerfile-1.drawio.png}
+	\centering\includegraphics[width=11cm]{dockerfile-1.drawio.png}
 \end{frame}
 
 \begin{frame}{Dockerfile}
-	\centering\includegraphics[width=8cm]{dockerfile.drawio.png}
+	\centering\includegraphics[width=11cm]{dockerfile.drawio.png}
 \end{frame}
 
 % now all of this Happening between in 2011 and by 2015 i remember everybody absolutely shitting on docker, alot of People here in higher semesters or already working and I think this was mostly because People didnt really understand it yet
@@ -124,11 +124,11 @@
 \begin{frame}[fragile]{From Docker to Kubernetes}
   \begin{lstlisting}
 docker run --name app-container
-	-p 5000:5000
-	-v ./data/app/data
-	-e "LOG_LEVEL: debug"
-	-e "DB_USER: ..."
-	-e "DB_PASS: ..."
+	--port 5000:5000
+	--volume ./data:/app/data
+	--env "LOG_LEVEL: debug"
+	--env "DB_USER: ..."
+	--env "DB_PASS: ..."
 	app-image
    \end{lstlisting}
 \end{frame}
@@ -239,34 +239,35 @@ docker run --name app-container
 		\item<2-> ..very expensive if you don't self-host it
 		\item<3-> ..does not make your application magically HA (Highly Available)
 		\item<4-> ..does not allow easy manual intervention
-		\item<5-> ..requires you to think in certain frameworks
-		\item<6-> ..is worse the less stateless your Pod is
+%		\item<5-> ..requires you to think in certain frameworks
+%		\item<6-> ..is worse the less stateless your Pod is
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Avoid All-in-One Obsession}
-	\begin{itemize}
-		\item<1-> Database in Kubernetes $\rightarrow$ very hard to get right, don't do it
-		\item<2-> Container Registry in Kubernetes $\rightarrow$ please don’t
-		\item<3-> Git in Kubernetes $\rightarrow$ just why
-	\end{itemize}
-\end{frame}
+%\begin{frame}{Avoid All-in-One Obsession}
+%	\begin{itemize}
+%		\item<1-> Database in Kubernetes $\rightarrow$ very hard to get %right, don't do it
+%		\item<2-> Container Registry in Kubernetes $\rightarrow$ please don’t
+%		\item<3-> Git in Kubernetes $\rightarrow$ just why
+%	\end{itemize}
+%\end{frame}
 
-\begin{frame}{What should your app look like to work well in Kubernetes}
-	\centering\includegraphics[width=8cm]{what_look_like.drawio.png}
-\end{frame}
+%\begin{frame}{What should your app look like to work well in Kubernetes}
+%	\centering\includegraphics[width=8cm]{what_look_like.drawio.png}
+%\end{frame}
 
-\begin{frame}{What should your app look like to work well in Kubernetes}
-	\centering\includegraphics[width=8cm]{what_look_like-1.drawio.png}
-\end{frame}
+%\begin{frame}{What should your app look like to work well in Kubernetes}
+%	\centering\includegraphics[width=8cm]{what_look_like-1.drawio.png}
+%\end{frame}
 
 
-\begin{frame}{What should your app look like to work well in Kubernetes}
-	\centering\includegraphics[width=8cm]{what_look_like-3.drawio.png}
-\end{frame}
+%\begin{frame}{What should your app look like to work well in Kubernetes}
+%	\centering\includegraphics[width=8cm]{what_look_like-3.drawio.png}
+%\end{frame}
 
 \begin{frame}{Fragen? Nächster Vortrag}
 \begin{itemize}
+\item \textbf{github.com/FAUSheppy/atlantis-fleet-ops}
 \item \textbf{Nächster Vortrag}: \textit{TODO}
 \item \textbf{Fragen}\\
 \end{itemize}

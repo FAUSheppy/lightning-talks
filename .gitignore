@@ -2,3 +2,10 @@
 *.toc
 *.out
 *.snm
+*.drawio.bkp
+*.aux
+*.log
+*.nav
+*.pdf
+*.synctex.gz
+*.vrb
