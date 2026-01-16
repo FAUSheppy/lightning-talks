@@ -47,36 +47,227 @@
 \end{center}
 \end{frame}
 
+%so i want to pull the various Levels of experience in and to understand how we ended up at kubernetes and why we would use it
+%fully understanding kubernetes in 10min is frankly impossible so my Goal today is to make every one of you wanna try it and the lets call it negative attitude towards it i often experience
+
+%we Need to understand a few Things About docker, who knows how to build docker containers?
+\begin{frame}{Docker}
+\end{frame}
+
 % --- Main content ---
 
+% Ok so, along time ago everything ran on Hardware and People realized, having a physical machine for every single Operation is terrible, but having everything on one machine is also terrible, and so the virtual machine was Born, something that is ubiquitos in todays environemtn
+
 \begin{frame}{VMs \& Docker}
-\centering\includegraphics[width=8cm]{progression-of-separation.png}
+\centering\includegraphics[width=8cm]{progression-of-separation-1-users.drawio.png}
 \end{frame}
 
-\begin{frame}{Prebuilt VM-Images}
-\begin{itemize}
-\item large
-\item Over
-\end{itemize}
+\begin{frame}{VMs \& Docker}
+	\centering\includegraphics[width=8cm]{progression-of-separation-2-VMs.drawio.png}
 \end{frame}
 
+
+%but then People started thinking, Setting up These basicially full operatings Systems, thats actually Kind of anoying and wasteful, i mean how much of this do you actually Need? how much Overhead are you introducing, and also Managing depencies is a pain.
+% now a Approach thats still in use today is Setting up a vm once, shutting it down, pulling THS disk and then using this disk as a base for new vms
+% Some of you might already realize where going with this
+\begin{frame}{VMs \& Docker}
+	\centering\includegraphics[width=8cm]{progression-of-separation-3-containers.drawio.png}
+\end{frame}
+
+% and will see what we get next
+\begin{frame}{VMs \& Docker}
+	\centering\includegraphics[width=8cm]{progression-of-separation.drawio.png}
+\end{frame}
+
+% ok so we have a few Problems we love to solve, vm Images might be big, vm builds are potentially complicated and there is possibly significant Overhead, and getting & installing vm Images is anoying
 \begin{frame}{Why not VMs?}
 \begin{itemize}
-\item VM
+\item<1-> VM images might be big
+\item<2-> VM builds might be complicated
+\item<3-> significant overhead
+\item<4-> getting \& running VM images might be annoying
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Solving these Problems with Docker}
+\begin{itemize}
+\item<1-> Docker Engine runs containerized, isolated applications
+\item<2-> standarized \textbf{Dockerfile} syntax defines "VM" Images
+\item<3-> a Docker client pulls, configures \& runs the images
+\end{itemize}
+\end{frame}
+
+% and voila we just invented docker, minus some extra Features.
+% how do these standardized images work
+\begin{frame}{Dockerfile}
+	\centering\includegraphics[width=8cm]{dockerfile-2.drawio.png}
+\end{frame}
+
+\begin{frame}{Dockerfile}
+	\centering\includegraphics[width=8cm]{dockerfile-1.drawio.png}
+\end{frame}
+
+\begin{frame}{Dockerfile}
+	\centering\includegraphics[width=8cm]{dockerfile.drawio.png}
+\end{frame}
+
+% now all of this Happening between in 2011 and by 2015 i remember everybody absolutely shitting on docker, alot of People here in higher semesters or already working and I think this was mostly because People didnt really understand it yet
+
+% now the times have changed. Docker or "containers" in General, the nominanclatur is a a bit complicated here are everywhere
+% some People still complain, but These Voices get fewer and Father in between, but something else Happenend in 2015 and that was the realease of kubernetes 1.0 and People shit on that to this day, a large Portion of People do not understandit, they try to migrate to it without understanding why you would do so and what Problems might arise and then they fail and call it a bad System
+\begin{frame}{From Docker to Kubernetes}
+\end{frame}
+
+% but we saw docker was a Pretty natural Progression for devops, lets see if we cant have the same Progression towards kubernetes and then see why People fail to migrate to kubernetes and how can you better and I hope by listening to me for another 7 minutes or so you will know more About this than 90% of the People i met at my various Projects
+
+% now we have our app, we can basically run it like this, pass some Environment, map some ports, map the local disk into the container 
+\begin{frame}[fragile]{From Docker to Kubernetes}
+  \begin{lstlisting}
+docker run --name app-container
+	-p 5000:5000
+	-v ./data/app/data
+	-e "LOG_LEVEL: debug"
+	-e "DB_USER: ..."
+	-e "DB_PASS: ..."
+	app-image
+   \end{lstlisting}
+\end{frame}
+
+% Looks like shit, lets make a yaml Definition out of this
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{docker-command-to-docker-compose.drawio.png}
+\end{frame}
+
+% Looks great, that's called docker compose
+% but this is a web application, would be great to have a ssloffloader for https right? lets add an nginx, oh now we also Need a certificate now, now we Need letsencrypt
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{compose-getting-complicated-1.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{compose-getting-complicated.drawio.png}
+\end{frame}
+
+\begin{frame}{Management has some requirements}
+	\begin{itemize}
+		\item ..is something nobody ever wants to hear
+	\end{itemize}
+\end{frame}
+
+% thats not bad, but oh shit our application is Pretty cpu and Memory intensive, we really Need to distributes this over multiple machines
+\begin{frame}{Management has some requirements}
+\begin{itemize}
+	\item<1-> load distribution over multiple machines/nodes
+	\item<2-> secure communication between nodes
+	\item<3-> an HTTP API to manage the cluster?
+	\item<4-> easier TLS management
+\end{itemize}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{compose-getting-complicated.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=8cm]{building-a-kubernetes.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{building-a-kubernetes-1.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{building-a-kubernetes-2.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=9cm]{building-a-kubernetes-3.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=9cm]{building-a-kubernetes-4.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{building-a-kubernetes-5.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{building-a-kubernetes-6.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\centering\includegraphics[width=11cm]{building-a-kubernetes-7.drawio.png}
+\end{frame}
+
+\begin{frame}{From Docker to Docker Compose to Kubernetes}
+	\includegraphics[width=11cm]{building-a-kubernetes-8.drawio.png}
+\end{frame}
+
+% now our app deployment now Looks like this and we can literally just infinitly scale it by just chaining this Parameter, and we can update every one of our ressource definitions just with kubectl apply -f ourfile.yaml and the apiserver will do the rest
+
+\begin{frame}{Kubernetes}
+	\centering\includegraphics[width=8cm]{final-deployment.drawio.png}
+\end{frame}
+
+% i dont want to dwell on the deailts of the syntax you see some things are not exactly as we came up with, like the naming via labels and the fact there are annotations and specifications, frankly I dont even think all of these design decisions are good, but thats somthing you will have to actually learn yourself , the first time you write your own service
+\begin{frame}{Kubernetes}
+	\centering\includegraphics[width=8cm]{final-deployment-1.drawio.png}
+\end{frame}
+
+
+% so what are the Problems, if this is so great why does literally every kubernetes Project run into so many Problems?, why did you listen to me yapping about how to logically arive at kubernetes 
+% well the answer is in the in understand what kubernetes solves automatically and what it doesnt solve automatically
+\begin{frame}{Why do Kubernetes Projects Fail}
+	
+\end{frame}
+
+\begin{frame}{Kubernetes}
+\begin{itemize}
+	\item<1-> ..automatically scales stateless container loads
+	\item<2-> ..automatically handles certificates
+	\item<3-> ..has great UIs for semi-technical operators
+	\item<4-> ..automatically encrypts \& handles internal traffic
+	\item<5-> ..has great automatic deployment options (GitOps)
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Warum ist OIDC? - Menschen sind Affen}
+\begin{frame}{Kubernetes also}
+	\begin{itemize}
+		\item<1-> ..hard to maintain by a single person
+		\item<2-> ..very expensive if you don't self-host it
+		\item<3-> ..does not make your application magically HA (Highly Available)
+		\item<4-> ..does not allow easy manual intervention
+		\item<5-> ..requires you to think in certain frameworks
+		\item<6-> ..is worse the less stateless your Pod is
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Demonstration}
-\href{https://progression-of-separation.png.atlantishq.de}{\beamergotobutton{https://hub.atlantishq.de}}
+\begin{frame}{Avoid All-in-One Obsession}
+	\begin{itemize}
+		\item<1-> Database in Kubernetes $\rightarrow$ very hard to get right, don't do it
+		\item<2-> Container Registry in Kubernetes $\rightarrow$ please don’t
+		\item<3-> Git in Kubernetes $\rightarrow$ just why
+	\end{itemize}
 \end{frame}
 
-\begin{frame}{Fragen? Nächster Vortrag: Haskell to Hardware!}
+\begin{frame}{What should your app look like to work well in Kubernetes}
+	\centering\includegraphics[width=8cm]{what_look_like.drawio.png}
+\end{frame}
+
+\begin{frame}{What should your app look like to work well in Kubernetes}
+	\centering\includegraphics[width=8cm]{what_look_like-1.drawio.png}
+\end{frame}
+
+
+\begin{frame}{What should your app look like to work well in Kubernetes}
+	\centering\includegraphics[width=8cm]{what_look_like-3.drawio.png}
+\end{frame}
+
+\begin{frame}{Fragen? Nächster Vortrag}
 \begin{itemize}
-\item \textbf{Nächster Vortrag}: \textit{Clash - from Haskell to Hardware}
+\item \textbf{Nächster Vortrag}: \textit{TODO}
 \item \textbf{Fragen}\\
 \end{itemize}
 \end{frame}

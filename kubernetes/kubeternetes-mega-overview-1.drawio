@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.0.6 Chrome/138.0.7204.100 Electron/37.2.3 Safari/537.36" version="28.0.6">
   <diagram name="Page-1" id="GTk6y2jcdJTuCgCfRgdb">
-    <mxGraphModel dx="681" dy="417" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1055" dy="647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -43,56 +43,26 @@
         <mxCell id="xl64LV2n4iG2DXZ6dDUY-17" value="helm" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="460" y="270" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="xl64LV2n4iG2DXZ6dDUY-18" value="ArgoCD" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="170" y="310" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="xl64LV2n4iG2DXZ6dDUY-19" value="fleet" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="160" y="370" width="80" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="xl64LV2n4iG2DXZ6dDUY-20" value="Clusters" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="180" y="430" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="xl64LV2n4iG2DXZ6dDUY-21" value="Rancher" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="440" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="xl64LV2n4iG2DXZ6dDUY-22" value="RBAC" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="550" y="380" width="80" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="xl64LV2n4iG2DXZ6dDUY-23" value="RBAC" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="540" y="300" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-2" value="Metal-LB" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="260" y="200" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-3" value="CoreDNS lol" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Hz-riQERoGRznRBgxXBS-3" value="CoreDNS lol" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="540" y="230" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-4" value="OpeShift" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="620" y="430" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-6" value="AKS" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="560" y="490" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-7" value="Kubeseal" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="450" y="490" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-8" value="external Secrets" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Hz-riQERoGRznRBgxXBS-8" value="external Secrets" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="440" y="210" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-9" value="Stateful Sets" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="Hz-riQERoGRznRBgxXBS-9" value="Stateful Sets" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="345" y="180" width="80" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-10" value="Persistent Volume Claims" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" vertex="1" parent="1">
-          <mxGeometry x="450" y="150" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-11" value="Pod Distruption Budgets" style="ellipse;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+        <mxCell id="Hz-riQERoGRznRBgxXBS-11" value="Pod Distruption Budgets" style="ellipse;whiteSpace=wrap;html=1;fontSize=9;" parent="1" vertex="1">
           <mxGeometry x="260" y="510" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-12" value="Gatekeeper" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="630" y="330" width="80" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="Hz-riQERoGRznRBgxXBS-13" value="etcd" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="150" y="230" width="80" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
