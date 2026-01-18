@@ -1,0 +1,67 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Page-1" id="GTk6y2jcdJTuCgCfRgdb">
+    <mxGraphModel dx="1420" dy="890" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Containers" vertex="1">
+          <mxGeometry height="40" width="80" x="340" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Network Fabrics" vertex="1">
+          <mxGeometry height="40" width="80" x="440" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Deployments" vertex="1">
+          <mxGeometry height="40" width="80" x="450" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Ingress" vertex="1">
+          <mxGeometry height="40" width="80" x="345" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Services" vertex="1">
+          <mxGeometry height="40" width="80" x="250" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Nodes" vertex="1">
+          <mxGeometry height="40" width="80" x="230" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="GitOps" vertex="1">
+          <mxGeometry height="40" width="80" x="460" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Scaling" vertex="1">
+          <mxGeometry height="40" width="80" x="260" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-13" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="CRDs" vertex="1">
+          <mxGeometry height="40" width="80" x="345" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-14" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="TLS" vertex="1">
+          <mxGeometry height="40" width="80" x="345" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Middleware" vertex="1">
+          <mxGeometry height="40" width="80" x="250" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-16" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Secrets" vertex="1">
+          <mxGeometry height="40" width="80" x="360" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-17" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="helm" vertex="1">
+          <mxGeometry height="40" width="80" x="460" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="ArgoCD" vertex="1">
+          <mxGeometry height="40" width="80" x="170" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-19" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="fleet" vertex="1">
+          <mxGeometry height="40" width="80" x="130" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-20" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Clusters" vertex="1">
+          <mxGeometry height="40" width="80" x="140" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-21" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Rancher" vertex="1">
+          <mxGeometry height="40" width="80" x="530" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-22" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="RBAC" vertex="1">
+          <mxGeometry height="40" width="80" x="550" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="xl64LV2n4iG2DXZ6dDUY-23" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="RBAC" vertex="1">
+          <mxGeometry height="40" width="80" x="570" y="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

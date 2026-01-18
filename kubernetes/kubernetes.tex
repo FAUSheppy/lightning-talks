@@ -1,0 +1,84 @@
+\documentclass{beamer}
+\usetheme{default}
+\usepackage{amssymb}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{textcomp}
+\usepackage[mathletters]{ucs}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\usepackage{listings}
+\usepackage{xcolor} % for custom colors
+
+\lstdefinelanguage{bash}{
+  keywords={for, in, do, done, echo},
+  sensitive=true,
+  morecomment=[l]{\#},
+  morestring=[b]",
+}
+
+\lstset{
+  language=bash,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  showstringspaces=false,
+  columns=flexible,
+  backgroundcolor=\color{gray!10},
+}
+
+\begin{document}
+
+% --- Title slide ---
+
+\title{A Journey to Kubernetes}
+\subtitle{}
+\author{Yannik Schmidt\vspace{-.3cm}}
+\institute{Lightning Talks @FAU}
+\date{}
+
+\begin{frame}
+\titlepage
+\vspace{-1.2cm}
+\begin{center}
+\end{center}
+\end{frame}
+
+% --- Main content ---
+
+\begin{frame}{VMs \& Docker}
+\centering\includegraphics[width=8cm]{progression-of-separation.png}
+\end{frame}
+
+\begin{frame}{Prebuilt VM-Images}
+\begin{itemize}
+\item large
+\item Over
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why not VMs?}
+\begin{itemize}
+\item VM
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Warum ist OIDC? - Menschen sind Affen}
+\end{frame}
+
+\begin{frame}{Demonstration}
+\href{https://progression-of-separation.png.atlantishq.de}{\beamergotobutton{https://hub.atlantishq.de}}
+\end{frame}
+
+\begin{frame}{Fragen? Nächster Vortrag: Haskell to Hardware!}
+\begin{itemize}
+\item \textbf{Nächster Vortrag}: \textit{Clash - from Haskell to Hardware}
+\item \textbf{Fragen}\\
+\end{itemize}
+\end{frame}
+
+\end{document}

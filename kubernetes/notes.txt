@@ -1,0 +1,96 @@
+so i want to pull the various Levels of experience in and to understand how we ended up at kubernetes and why we would use it
+fully understanding kubernetes in 10min is frankly impossible so my Goal today is to make every one of you wanna try it and the lets call it negative attitude towards it i often experience
+
+we Need to understand a few Things About docker, who knows how to build docker containers?
+
+Ok so, along time ago everything ran on Hardware and People realized, having a physical machine for every single Operation is terrible, but having everything on one machine is also terrible, and so the virtual machine was Born, something that is ubiquitos in todays environemtn
+
+but then People started thinking, Setting up These basicially full operatings Systems, thats actually Kind of anoying and wasteful, i mean how much of this do you actually Need? how much Overhead are you introducing, and also Managing depencies is a pain.
+
+now a Approach thats still in use today is Setting up a vm once, shutting it down, pulling THS disk and then using this disk as a base for new vms
+Some of you might already realize where going with this
+
+ok so we have a few Problems we love to solve, vm Images might be big, vm builds are potentially complicated and there is possibly significant Overhead, and getting & installing vm Images is anoying
+
+and for that we are getting
+- the docker runtime engine runs containizedred, isolated applications with cgroups
+- dockerfiles which define "vm" Images which we know just call docker Images
+- and we create a docker Client which Auto pulls These Images among other Things
+
+and voila we just invented docker, minus some extra Features.
+
+
+---
+
+now all of this Happening between in 2011 and by 2015 i remember everybody absolutely shitting on docker, alot of People here in higher semesters or already working and I think this was mostly because People didnt really understand it yet
+
+--- 
+
+now the times have changed. Docker or "containers" in General, the nominanclatur is a a bit complicated here are everybody, some People still complain, but These Voices get fewer and Father in between, but something else Happenend in 2015 and that was the realease of kubernetes 1.0 and People shit on that to this day, a large Portion of People do not understandit, they try to migrate to it without understanding why you would do so and what Problems might arise and then they fail and call it a bad System
+
+---
+
+but we saw docker was a Pretty natural Progression for devops, lets see if we cant have the same Progression towards kubernetes and then see why People fail to migrate to kubernetes and how can you better and I hope by listening to me for another 7 minutes or so you will know more About this than 90% of the People i met at my various Projects
+
+---
+
+now we have our app, we can basically run it like this, pass some Environment, map some ports, map the local disk into the container 
+Looks like shit, lets make a yaml Definition out of this
+Looks great, that's called docker compose
+but this is a web application, would be great to have a ssloffloader for https right? lets add an nginx, oh now we also Need a certificate now, now we Need letsencrypt
+
+thats not bad, but oh shit our application is Pretty cpu and Memory intensive, we really Need to distributes this over multiple machines
+
+< fuck.png >
+
+ok lets Setup a etcd-cluster for config Management, Setup one Proxy to take the Connection and forwardward to other Nodes or VMs and Setup wireguard or ipsec to encrypt traeffic between those VMs
+
+but now our Setup is hard to overlook, so Maybe we build an api on top of that which can tell us what exactly is currently running and where
+i mean if we do that, why not also give this api actual types,
+
+lets call this an Ingress
+this a Services
+this a deployment
+and all of this we call a config map
+
+and About those certificate, how we create certificates just based on the configuration itself automatically, that be great right?
+now that we have an API we can build a frontend on top of it
+
+now a Company is growing we Need more devisions and fine granualler Rights Management, all of our applications are already isolated, so we can theoretically run everything everywhere, how About we give every Team a Namespace and have our apiserver balance containers over all of our nodes automatically?
+
+congra fucking lations you just build kubernetes - and ist awesome
+
+ist a way to autobalance containerized loads, based on yaml definitions over a a cluster aka a number of nodes
+
+---
+
+now our app deployment now Looks like this and we can literally just infinitly scale it by just chaining this Parameter, and we can update every one of our ressource definitions just with kubectl apply -f ourfile.yaml and the apiserver will do the rest
+
+---
+
+so what are the Problems, if this is so great why does literally every kubernetes Project run into so many Problems?
+well.
+
+kubernetes does one Thing particually well:
+
+- running Tasks, that are from the perspective of the kubernetes, stateless
+what does that meaning?
+
+It means, it doesnt have state IN THE KUBERNETES
+
+- Needs Information -> database
+- Needs congiuration -> bake it into the Images
+- Needs data -> load it from S3
+
+But if this is so easy why not just do that?, well
+
+- some Things can't be baked into container Images because of licensing Problems, yes sounds stupid, but that happens alot acutally
+- applications which write state to disk are more common than you think, volumes tmeporaray or permanent are possible in kubernetes, even as multi-node read write, but it makes Things alot more complex, the easisert way is to only have configuration, have Secrets like database Passwords and s3 keys and load everything from there
+- your application requires ANY Manual Intervention or Setup, now this is a big one: Your application Needs a user to do a web based Setup? thats not going to happen, everything Needs to be declarative and loaded from configuration
+
+So summary, your application will work great in kubernetes IF:
+- your load everything concurrency safe from a database
+- your datastore uses remove protocols like S3
+- your application does not require any Manual intervetion or Setup
+
+Do that and you are literally kubernetes Ready.
